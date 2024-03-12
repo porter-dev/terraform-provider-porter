@@ -3,17 +3,17 @@ resource "porter_app" "my_app_on_porter" {
   image = "nginx:latest"
   services = [
     {
-      name         = "my-nginx-pod"
-      type         = "web"
-      cpuCores     = 0.2
-      ramMegabytes = 256
+      name          = "my-nginx-pod"
+      type          = "web"
+      cpu_cores     = 0.2
+      ram_megabytes = 256
     },
     {
-      name         = "restart-my-app"
-      type         = "job"
-      cpuCores     = 0.2
-      ramMegabytes = 256
-      command      = "echo 'Restarting my app'"
+      name          = "restart-my-app"
+      type          = "job"
+      cpu_cores     = 0.2
+      ram_megabytes = 256
+      command       = "echo 'Restarting my app'"
     },
 
   ]

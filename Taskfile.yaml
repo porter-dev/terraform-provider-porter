@@ -4,24 +4,11 @@ tasks:
   generate-docs:
     desc: Generate terraform docs
     cmds:
-      - go generate ./...
-  
-  move-to-production:
-    desc: Move the current branch to production
-    cmds:
-    - cmd: git tag -d production
-      ignore_error: false
-      silent: true
-    - cmd: git push origin :production
-      ignore_error: false
-      silent: true
-    - cmd: git tag production
-      ignore_error: false
-      silent: true
-    - cmd: git push origin production
-      ignore_error: false
-      silent: true
-  
+      - cmd: go generate ./...
+        silent: true
+    env:
+      GOWORK: off
+
   create-release:
     desc: Create a git tag, and corresponding release for the TF provider. Must be committed in full to git. Specify a tag using `task create-release -- v0.0.1`
     cmds:

@@ -47,11 +47,11 @@ func (r *porterAppResource) Schema(_ context.Context, _ resource.SchemaRequest, 
 							Description: "The name of the service within the application",
 							Required:    true,
 						},
-						"cpuCores": schema.NumberAttribute{
+						"cpu_cores": schema.NumberAttribute{
 							Description: "The number of CPU cores to allocate to the service. 0.1 is 10 percent of a single vcpu core",
 							Optional:    true,
 						},
-						"ramMegabytes": schema.NumberAttribute{
+						"ram_megabytes": schema.NumberAttribute{
 							Description: "The number of megabytes of RAM to allocate to the service in Mb",
 							Optional:    true,
 						},
