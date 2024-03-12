@@ -23,15 +23,14 @@ tasks:
       silent: true
   
   create-release:
-    desc: Create a git tag, and corresponding release for the TF provider. Must be committed in full to git. Specify a tag using `task create-release -- v0.0.1`. Must export a GITHUB_TOKEN with write:packages permissions before running
+    desc: Create a git tag, and corresponding release for the TF provider. Must be committed in full to git. Specify a tag using `task create-release -- v0.0.1`
     cmds:
-    - cmd: echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
     - task: semantic-check
     - cmd: git tag {{.CLI_ARGS}}
     - cmd: git push origin {{.CLI_ARGS}} 
       ignore_error: false
       silent: true
-      
+
   semantic-check:
     preconditions:
     - sh: version={{ .CLI_ARGS }}; semantic_version_regex='^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$'; if [[ $version =~  $semantic_version_regex ]]; then; else exit 1; fi

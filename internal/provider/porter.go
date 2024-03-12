@@ -170,6 +170,6 @@ func (p *providerPorter) DataSources(_ context.Context) []func() datasource.Data
 // Resources defines the resources implemented in the provider.
 func (p *providerPorter) Resources(_ context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
-		// NewOrderResource,
+		NewEksClusterResource,
 	}
 }

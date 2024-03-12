@@ -1,3 +1,3 @@
 provider "porter" {
-  # example configuration here
+  api_token = "your-api-token"
 }
