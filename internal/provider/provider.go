@@ -173,5 +173,6 @@ func (p *providerPorter) Resources(_ context.Context) []func() resource.Resource
 		NewEksClusterResource,
 		NewAksClusterResource,
 		NewGkeClusterResource,
+		NewPorterAppResource,
 	}
 }

@@ -24,7 +24,7 @@ func (r *aksClusterResource) Metadata(_ context.Context, req resource.MetadataRe
 // Schema defines the schema for the resource.
 func (r *aksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Porter-managed AKS cluster",
+		Description: "Create a cluster on Azure AKS, managed by Porter",
 		Attributes: map[string]schema.Attribute{
 			"is_soc2_compliant": schema.BoolAttribute{
 				Description: "Ensure that the cluster is SOC2 compliant",

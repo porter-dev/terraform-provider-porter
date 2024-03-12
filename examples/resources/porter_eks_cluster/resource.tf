@@ -13,20 +13,8 @@ resource "porter_eks_cluster" "my_new_eks_cluster" {
       max_nodes     = 10
     },
     {
-      type          = "system"
-      instance_type = "t3.medium"
-      min_nodes     = 1
-      max_nodes     = 5
-    },
-    {
-      type          = "custom"
+      type          = "gpu"
       instance_type = "g4dn.2xlarge"
-      min_nodes     = 1
-      max_nodes     = 5
-    },
-    {
-      type          = "monitoring"
-      instance_type = "t3.large"
       min_nodes     = 1
       max_nodes     = 5
     }
