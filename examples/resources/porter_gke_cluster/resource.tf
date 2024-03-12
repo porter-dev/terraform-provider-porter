@@ -1,6 +1,6 @@
-resource "porter_eks_cluster" "my_new_eks_cluster" {
-  name            = "my-new-cluster-aws"
-  region          = "us-west-2"
+resource "porter_gke_cluster" "my_new_gke_cluster" {
+  name            = "my-new-cluster-gcp"
+  region          = "us-east4"
   version         = "v1.27"
   is_soc2_enabled = false
   vpc_cidr        = "10.78.0.0/16"
@@ -8,25 +8,25 @@ resource "porter_eks_cluster" "my_new_eks_cluster" {
   node_groups = [
     {
       type          = "application"
-      instance_type = "t3.medium"
+      instance_type = "e2-standard-4"
       min_nodes     = 1
       max_nodes     = 10
     },
     {
       type          = "system"
-      instance_type = "t3.medium"
+      instance_type = "e2-standard-4"
       min_nodes     = 1
       max_nodes     = 5
     },
     {
       type          = "custom"
-      instance_type = "g4dn.2xlarge"
+      instance_type = "n1-standard-32"
       min_nodes     = 1
       max_nodes     = 5
     },
     {
       type          = "monitoring"
-      instance_type = "t3.large"
+      instance_type = "e2-standard-8"
       min_nodes     = 1
       max_nodes     = 5
     }

@@ -171,5 +171,6 @@ func (p *providerPorter) DataSources(_ context.Context) []func() datasource.Data
 func (p *providerPorter) Resources(_ context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		NewEksClusterResource,
+		NewAksClusterResource,
 	}
 }

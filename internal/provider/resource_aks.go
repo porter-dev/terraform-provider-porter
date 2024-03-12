@@ -7,24 +7,24 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 )
 
-var _ resource.Resource = &eksClusterResource{}
+var _ resource.Resource = &aksClusterResource{}
 
-// eksClusterResource is the resource for the Porter EKS cluster
-type eksClusterResource struct{}
+// aksClusterResource is the resource for the Porter AKS cluster
+type aksClusterResource struct{}
 
-// NewEksClusterResource creates a new EKS cluster resource
-func NewEksClusterResource() resource.Resource {
-	return &eksClusterResource{}
+// NewAksClusterResource creates a new AKS cluster resource
+func NewAksClusterResource() resource.Resource {
+	return &aksClusterResource{}
 }
 
-func (r *eksClusterResource) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_eks_cluster"
+func (r *aksClusterResource) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_aks_cluster"
 }
 
 // Schema defines the schema for the resource.
-func (r *eksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
+func (r *aksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Porter-managed EKS cluster",
+		Description: "Porter-managed AKS cluster",
 		Attributes: map[string]schema.Attribute{
 			"is_soc2_compliant": schema.BoolAttribute{
 				Description: "Ensure that the cluster is SOC2 compliant",
@@ -56,7 +56,7 @@ func (r *eksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest,
 				NestedObject: schema.NestedAttributeObject{
 					Attributes: map[string]schema.Attribute{
 						"type": schema.StringAttribute{
-							Description: "The type of the node group. Must be either 'application', 'custom', 'monitoring' or 'system'. Monitoring and System will be added by default if unspecified. Use 'custom' for GPU nodes.",
+							Description: "The type of the node group. Must be either 'application', 'custom', 'monitoring' or 'system'. Monitoring and System will be added by default if unspecified",
 							Required:    true,
 						},
 						"min_nodes": schema.NumberAttribute{
@@ -79,17 +79,17 @@ func (r *eksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest,
 }
 
 // Create creates the resource and sets the initial Terraform state.
-func (r *eksClusterResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
+func (r *aksClusterResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
 }
 
 // Read refreshes the Terraform state with the latest data.
-func (r *eksClusterResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
+func (r *aksClusterResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
 }
 
 // Update updates the resource and sets the updated Terraform state on success.
-func (r *eksClusterResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
+func (r *aksClusterResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
 }
 
 // Delete deletes the resource and removes the Terraform state on success.
-func (r *eksClusterResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
+func (r *aksClusterResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
 }

@@ -7,24 +7,24 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 )
 
-var _ resource.Resource = &eksClusterResource{}
+var _ resource.Resource = &gkeClusterResource{}
 
-// eksClusterResource is the resource for the Porter EKS cluster
-type eksClusterResource struct{}
+// gkeClusterResource is the resource for the Porter GKE cluster
+type gkeClusterResource struct{}
 
-// NewEksClusterResource creates a new EKS cluster resource
-func NewEksClusterResource() resource.Resource {
-	return &eksClusterResource{}
+// NewGkeClusterResource creates a new GKE cluster resource
+func NewGkeClusterResource() resource.Resource {
+	return &gkeClusterResource{}
 }
 
-func (r *eksClusterResource) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_eks_cluster"
+func (r *gkeClusterResource) Metadata(_ context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_gke_cluster"
 }
 
 // Schema defines the schema for the resource.
-func (r *eksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
+func (r *gkeClusterResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Porter-managed EKS cluster",
+		Description: "Porter-managed GKE cluster",
 		Attributes: map[string]schema.Attribute{
 			"is_soc2_compliant": schema.BoolAttribute{
 				Description: "Ensure that the cluster is SOC2 compliant",
@@ -79,17 +79,17 @@ func (r *eksClusterResource) Schema(_ context.Context, _ resource.SchemaRequest,
 }
 
 // Create creates the resource and sets the initial Terraform state.
-func (r *eksClusterResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
+func (r *gkeClusterResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
 }
 
 // Read refreshes the Terraform state with the latest data.
-func (r *eksClusterResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
+func (r *gkeClusterResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
 }
 
 // Update updates the resource and sets the updated Terraform state on success.
-func (r *eksClusterResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
+func (r *gkeClusterResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
 }
 
 // Delete deletes the resource and removes the Terraform state on success.
-func (r *eksClusterResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
+func (r *gkeClusterResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
 }
