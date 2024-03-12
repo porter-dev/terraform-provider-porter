@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  generate-docs:
+    desc: Generate terraform docs
+    cmds:
+      - go generate ./...
