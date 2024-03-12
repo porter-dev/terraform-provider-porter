@@ -13,7 +13,7 @@ Interact with Porter.
 ## Example Usage
 
 ```terraform
-provider "scaffolding" {
+provider "porter" {
   # example configuration here
 }
 ```
