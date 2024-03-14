@@ -45,7 +45,7 @@ func (p *providerPorter) Metadata(ctx context.Context, req provider.MetadataRequ
 // Schema defines the provider-level schema for configuration data.
 func (p *providerPorter) Schema(_ context.Context, _ provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Interact with Porter.",
+		Description: "Use the Porter provider to create and manage Kubernetes clusters across AWS, Azure, and GCP.",
 		Attributes: map[string]schema.Attribute{
 			"host": schema.StringAttribute{
 				Description: "URI for Porter API. May also be provided via PORTER_HOST environment variable.",
