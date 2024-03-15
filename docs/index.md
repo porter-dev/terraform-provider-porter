@@ -3,12 +3,12 @@
 page_title: "porter Provider"
 subcategory: ""
 description: |-
-  Interact with Porter.
+  Use the Porter provider to create and manage Kubernetes clusters across AWS, Azure, and GCP.
 ---
 
 # porter Provider
 
-Interact with Porter.
+Use the Porter provider to create and manage Kubernetes clusters across AWS, Azure, and GCP.
 
 ## Example Usage
 
